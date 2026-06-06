@@ -1,0 +1,462 @@
+/* --- Brand Palette & Custom Design Variables --- */
+:root {
+    --bg-pure-dark: #050505;
+    --bg-card: #0d0d0d;
+    --bg-header: rgba(10, 10, 10, 0.95);
+    --gold-primary: #d4af37;
+    --gold-gradient: linear-gradient(135deg, #f5e4a7 0%, #d4af37 50%, #967012 100%);
+    --violet-glow: rgba(138, 43, 226, 0.4);
+    --violet-glow-heavy: rgba(138, 43, 226, 0.7);
+    --text-pure: #ffffff;
+    --text-muted: #cccccc;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-pure-dark);
+    color: var(--text-pure);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- Global Utilities --- */
+.gold-divider {
+    color: var(--gold-primary);
+    margin: 15px 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.gold-divider::before, .gold-divider::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: var(--gold-gradient);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Fixed Navbar Header Layout --- */
+.main-header {
+    background-color: var(--bg-header);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #161616;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 12px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+/* Hardware accelerated image loading styles */
+.brand-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    will-change: transform;
+    transform: translateZ(0);
+    filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.25));
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #888888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--gold-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #8a2be2;
+    box-shadow: 0 0 10px var(--violet-glow-heavy);
+    transition: width 0.3s ease;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* --- Hero Layout --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 180px; 
+    padding-bottom: 60px;
+    text-align: center;
+    background: radial-gradient(circle at center, #111111 0%, var(--bg-pure-dark) 100%);
+}
+
+.hero-content {
+    max-width: 850px;
+    padding: 0 24px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 2.4rem; 
+    line-height: 1.3;
+    letter-spacing: 2px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline {
+    font-size: 1.4rem;
+    color: #e6cb6e;
+    margin-top: 12px;
+    font-weight: 300;
+}
+
+.hero-description {
+    font-size: 1rem;
+    color: #a69c8a;
+    margin: 20px 0 40px 0;
+}
+
+/* --- Premium Buttons --- */
+.btn-premium {
+    display: inline-block;
+    padding: 14px 42px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #000000;
+    text-decoration: none;
+    background: var(--gold-gradient);
+    border: 1px solid var(--gold-primary);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--violet-glow);
+}
+
+.btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px var(--violet-glow-heavy), 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* --- Services Grid --- */
+.services-section {
+    padding: 80px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.service-card {
+    background-color: var(--bg-card);
+    border: 1px solid #161616;
+    border-radius: 16px;
+    padding: 35px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s ease, transform 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: var(--gold-primary);
+    transform: translateY(-3px);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(138, 43, 226, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.service-name {
+    font-size: 1.4rem;
+    color: var(--text-pure);
+    margin-bottom: 12px;
+}
+
+.service-text {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* --- About & Corporate Metrics --- */
+.about-section {
+    padding: 80px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.metrics-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 40px 0 60px 0;
+}
+
+.metric-box {
+    background: #090909;
+    border-left: 3px solid var(--gold-primary);
+    padding: 25px;
+    border-radius: 4px 12px 12px 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-story p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.story-tagline {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--gold-primary);
+    margin-top: 35px;
+    text-align: center;
+}
+
+/* --- Luxury Form Fields --- */
+.contact-section {
+    padding: 80px 24px 120px 24px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-container {
+    background-color: var(--bg-card);
+    border: 1px solid #161616;
+    border-radius: 20px;
+    padding: 45px 30px;
+}
+
+.premium-form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #050505;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    color: var(--text-pure);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 12px var(--violet-glow);
+}
+
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    color: #666666;
+    transition: all 0.3s ease;
+    background-color: var(--bg-card);
+    padding: 0 5px;
+    pointer-events: none;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 12px;
+    font-size: 0.85rem;
+    color: var(--gold-primary);
+}
+
+.btn-submit {
+    width: 100%;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #030303;
+    border-top: 1px solid #111111;
+    color: #555555;
+}
+
+/* --- Responsive Layout Adjustments --- */
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 40px;
+    }
+    
+    .brand-wrapper {
+        margin-bottom: 0;
+    }
+    
+    .brand-logo {
+        height: 75px;
+        padding: 5px;
+    }
+
+    .brand-name {
+        font-size: 2.4rem;
+    }
+
+    .nav-menu {
+        gap: 35px;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding-bottom: 6px;
+    }
+
+    .hero-section {
+        padding-top: 180px;
+    }
+
+    .hero-title {
+        font-size: 4.8rem;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .services-grid .service-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: calc(50% - 15px);
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .metrics-grid {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .metric-box {
+        flex: 1;
+        align-items: center;
+        border-left: none;
+        border-bottom: 3px solid var(--gold-primary);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .services-grid .service-card:nth-child(3) {
+        grid-column: auto;
+        max-width: 100%;
+    }
+}
